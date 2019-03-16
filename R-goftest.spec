@@ -4,14 +4,14 @@
 #
 Name     : R-goftest
 Version  : 1.1.1
-Release  : 13
+Release  : 14
 URL      : https://cran.r-project.org/src/contrib/goftest_1.1-1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/goftest_1.1-1.tar.gz
 Summary  : Classical Goodness-of-Fit Tests for Univariate Distributions
 Group    : Development/Tools
 License  : GPL-2.0+
-Requires: R-goftest-lib
-BuildRequires : clr-R-helpers
+Requires: R-goftest-lib = %{version}-%{release}
+BuildRequires : buildreq-R
 
 %description
 for continuous univariate distributions, using
@@ -33,11 +33,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1521204358
+export SOURCE_DATE_EPOCH=1552763706
 
 %install
+export SOURCE_DATE_EPOCH=1552763706
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1521204358
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -72,8 +72,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library goftest|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  goftest || :
 
 
 %files
@@ -97,10 +96,8 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/goftest/help/paths.rds
 /usr/lib64/R/library/goftest/html/00Index.html
 /usr/lib64/R/library/goftest/html/R.css
-/usr/lib64/R/library/goftest/libs/symbols.rds
 
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/R/library/goftest/libs/goftest.so
 /usr/lib64/R/library/goftest/libs/goftest.so.avx2
-/usr/lib64/R/library/goftest/libs/goftest.so.avx512
