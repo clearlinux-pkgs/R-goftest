@@ -4,7 +4,7 @@
 #
 Name     : R-goftest
 Version  : 1.2.3
-Release  : 49
+Release  : 50
 URL      : https://cran.r-project.org/src/contrib/goftest_1.2-3.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/goftest_1.2-3.tar.gz
 Summary  : Classical Goodness-of-Fit Tests for Univariate Distributions
